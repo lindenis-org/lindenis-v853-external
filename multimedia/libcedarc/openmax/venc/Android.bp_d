@@ -1,0 +1,40 @@
+cc_library_shared {
+    name: "libOmxVenc",
+    defaults: ["libcdc_config_defaults"],
+    proprietary: true,
+    cflags: ["-D__OS_ANDROID"],
+
+    srcs: [
+        "omx_venc.c",
+        "omx_tsem.c",
+        "omx_venc_android_adapter.cpp",
+        "omx_common.c",
+    ],
+
+    include_dirs: [
+        "frameworks/av/media/libcedarc/openmax/omxcore/include/",
+        "frameworks/av/media/libcedarc/openmax/include/",
+        "frameworks/native/include/",
+        "frameworks/native/include/media/hardware",
+        "frameworks/native/include/media/openmax",
+        "frameworks/av/media/libcedarc/include",
+        "frameworks/av/media/libcedarc/memory",
+        "frameworks/av/media/libcedarc/include",
+        "frameworks/av/media/libcedarc/base/include",
+        "hardware/aw/gpu/include",
+    ] + ["hardware/libhardware/include/hardware/"],
+
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "liblog",
+        "libbinder",
+        "libui",
+        "libion",
+    ] + [
+        "libVE",
+        "libMemAdapter",
+        "libvencoder",
+        "libcdc_base",
+    ],
+}

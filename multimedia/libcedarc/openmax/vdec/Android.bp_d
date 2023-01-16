@@ -1,0 +1,71 @@
+bootstrap_go_package {
+    name: "soong-omx_vdec",
+    pkgPath: "android/soong/omx_vdec",
+    deps: [
+        "soong",
+        "soong-android",
+        "soong-cc",
+    ],
+    srcs: [
+        "omx_vdec.go",
+    ],
+    pluginFor: ["soong_build"],
+}
+
+omx_vdec_defaults {
+    name: "omx_vdec_defaults",
+}
+cc_library_shared {
+    name: "libOmxVdec",
+
+    defaults: ["libcdc_config_defaults",
+            "omx_vdec_defaults",
+    ],
+    proprietary: true,
+    srcs: [
+        "src/omx_vdec.c",
+        "src/omx_vdec_port.c",
+        "src/omx_vdec_aw_decoder_android.cpp",
+        "looper/omx_thread.c",
+        "looper/omx_mutex.c",
+        "looper/omx_sem.c",
+        "src/omx_deinterlace.cpp",
+    ],
+
+    include_dirs: [
+        "frameworks/av/media/libcedarc/openmax/omxcore/include",
+        "frameworks/av/media/libcedarc/openmax/include",
+        "frameworks/av/media/libcedarc/base/include/",
+        "frameworks/av/media/libcedarc/memory/",
+        "frameworks/native/include/",
+        "frameworks/native/include/media/hardware",
+        "frameworks/av/media/libcedarc/include",
+        "hardware/libhardware/include/hardware/",
+        "hardware/aw/gpu/include",
+        "frameworks/av/media/libstagefright/foundation/include",
+        "frameworks/native/libs/nativebase/include",
+        "frameworks/native/libs/nativewindow/include",
+        "frameworks/native/libs/arect/include",
+    ],
+    local_include_dirs: [
+        "inc",
+        "looper/",
+    ],
+
+    //cflags : ["-DCONF_OMX_USE_COPY_STRATEGY"],
+
+    shared_libs: [
+        "libvdecoder",
+        "libVE",
+        "libvideoengine",
+        "libMemAdapter",
+        "libcdc_base",
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libbinder",
+        "libui",
+        "libdl",
+        "libion",
+    ],
+}

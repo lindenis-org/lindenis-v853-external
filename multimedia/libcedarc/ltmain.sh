@@ -1,0 +1,1 @@
+/home/xuqiang/workspace/tina/out/host/share/libtool/config/ltmain.sh

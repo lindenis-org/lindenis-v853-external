@@ -1,0 +1,95 @@
+;---------------------------------------------------------------------------------------------------------
+; 说明： 脚本中的字符串区分大小写，用户可以修改"="后面的数值，但是不要修改前面的字符串
+; 描述dragonboard测试case信息的格式：
+;    enabled                /* 0: disabled, 1: enabled */
+;    category               /* 0: auto, 1: manual, 2: wifi */
+;    run_type               /* 0: wait completion, 1: no wait completion */
+;---------------------------------------------------------------------------------------------------------
+
+[product]
+type = "ipc"
+version = "1.0"
+
+[platform]
+type    = "v853"
+
+;----------------------------------------
+; System and peripherals test cases
+;----------------------------------------
+[RTC]
+enabled   = 1
+category  = 0
+run_type  = 0
+
+[LED]
+enabled   = 1
+category  = 0
+run_type  = 0
+
+[USB]
+enabled   = 1
+category  = 0
+run_type  = 0
+
+[DDR]
+enabled   = 1
+category  = 0
+run_type  = 0
+
+[TF]
+enabled   = 1
+category  = 0
+run_type  = 0
+
+[NOR]
+enabled   = 1
+category  = 0
+run_type  = 0
+
+[NAND]
+enabled   = 0
+category  = 0
+run_type  = 0
+
+;----------------------------------------
+; MPP test cases
+;----------------------------------------
+[CSI]
+enabled   = 1
+category  = 0
+run_type  = 0
+
+[MIC]
+enabled   = 1
+category  = 0
+run_type  = 0
+
+[VENC]
+enabled   = 1
+category  = 0
+run_type  = 0
+
+[VDEC]
+enabled   = 1
+category  = 0
+run_type  = 0
+
+[ISP]
+enabled   = 1
+category  = 0
+run_type  = 0
+
+[G2D]
+enabled   = 1
+category  = 0
+run_type  = 0
+
+[CE]
+enabled   = 1
+category  = 0
+run_type  = 0
+
+[VO]
+enabled   = 1
+category  = 0
+run_type  = 0

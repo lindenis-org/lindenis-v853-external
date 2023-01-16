@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 一个图层，size由使用者决定，建议沾满屏幕 -->
+<!-- DLNA 播放界面图层，含进度条信息、节目信息、音量条、播放状态提示（缓冲、出错信息） -->
+<!-- layer:
+		属性：background x y w h
+		子标签：widget
+
+	widget:
+		属性：name, x, y, w, h
+		子标签：element
+
+	element:
+		属性：name, x, y, w, h, order, direct
+		子标签：item
+
+	item: 图片/文字 内容来源于：程序设置 > 属性 > 子标签
+		属性：type, color, font_size, image, direct
+		子标签: image/text
+
+	image:
+		属性：key, source
+
+	text:
+		属性：key, text, vpos（垂直对齐）, hpos(水平对齐)
+-->
+
+<!--  -->
+<layer background="" x="0" y="0" w="100" h="100">
+
+	<widget name="entry" x="0" y="0" w="100" h="100">
+
+		<element name="bg" x="0" y="0" w="100" h="100">
+			<item type="rect" color="0x00000000" />
+		</element>
+
+		<element name="movie_info" x="0" y="30" w="100" h="40">
+			<item type="text" color="0xFFF8F8FF" font_size="23" value="metadata.movie_name" />
+		</element>
+
+	</widget>
+
+	<!-- 一个显示区块，显示区块内含若干元素，为最小控制渲染单元 -->
+	<!-- 进度调，含影片信息 -->
+	<widget name="progress_bar" x="0" y="85" w="100" h="15">
+
+		<element name="bg_image"  x="0" y="90" w="100" h="10" >
+			<item type="image" value="/usr/res/pic/play_pause_bg.png" />
+		</element>
+
+		<element name="movie_info"  x="0" y="85" w="100" h="5" >
+			<item type="text" color="0xFFF8F8FF" font_size="18" value="metadata.movie_name" hpos="left"/>
+		</element>
+
+		<element name="status_icon"  x="0" y="95" w="2" h="2" >
+			<item type="image" value="/usr/res/pic/icon_pause.png" />
+		</element>
+
+		<element name="position"  x="0" y="95" w="10" h="5" >
+			<item type="text" color="0xFFF8F8FF" font_size="18" value="metadata.position" />
+		</element>
+
+		<element name="duration"  x="90" y="95" w="10" h="5" order="4" >
+			<item type="text" color="0xFFF8F8FF" font_size="18" value="metadata.duration" />
+		</element>
+
+	</widget>
+
+	<!-- element 和 item 都支持 direct 属性:
+	1. default, 默认值，选取第一个image/text
+	2. key, 根据key选取
+	3. motion, 动图，按顺序，按制定的timer显示image/text，可配置是否循环显示
+	-->
+	<!-- effect: static, once_motion, cycle_motion -->
+	<!-- 音量条 -->
+	<widget name="volume_bar" x="90" y="30" w="5" h="40" timer="2000">
+
+		<element name="val_image"  x="90" y="30" w="5" h="40" index="metadata.volume" >
+			<item type="image"  value="/usr/res/pic/volume/0.png" index="0"/>
+			<item type="image"  value="/usr/res/pic/volume/1.png" index="1"/>
+			<item type="image"  value="/usr/res/pic/volume/2.png" index="2"/>
+			<item type="image"  value="/usr/res/pic/volume/3.png" index="3"/>
+			<item type="image"  value="/usr/res/pic/volume/4.png" index="4"/>
+			<item type="image"  value="/usr/res/pic/volume/5.png" index="5"/>
+			<item type="image"  value="/usr/res/pic/volume/6.png" index="6"/>
+			<item type="image"  value="/usr/res/pic/volume/7.png" index="7"/>
+			<item type="image"  value="/usr/res/pic/volume/8.png" index="8"/>
+			<item type="image"  value="/usr/res/pic/volume/9.png" index="9"/>
+			<item type="image"  value="/usr/res/pic/volume/10.png" index="10"/>
+			<item type="image"  value="/usr/res/pic/volume/11.png" index="11"/>
+			<item type="image"  value="/usr/res/pic/volume/12.png" index="12"/>
+			<item type="image"  value="/usr/res/pic/volume/13.png" index="13"/>
+			<item type="image"  value="/usr/res/pic/volume/14.png" index="14"/>
+			<item type="image"  value="/usr/res/pic/volume/15.png" index="15"/>
+
+		</element>
+
+	</widget>
+
+	<!-- 提示信息：缓冲、播放异常 -->
+	<widget name="status_hint" x="40" y="40" w="20" h="20">
+		<element name="hint" type="text" x="40" y="40" w="20" h="20" index="metadata.hint">
+
+			<item index="buffering" type="image" effect="cycle_motion" step="500">
+				<image value="xx.png"/>
+				<image value="xx.png"/>
+				<image value="xx.png"/>
+
+			</item>
+
+			<item index="player_info" type="text" value="metadata.error_info" color="0xFF303030" font_size="41"/>
+
+		</element>
+	</widget>
+
+	<widget name="buffering" x="40" y="40" w="20" h="20" timer="2000">
+
+		<element name="val_image"  x="40" y="40" w="20" h="20" index="metadata.buffering" >
+			<item type="image"  value="/usr/res/pic/buffering/0.png" index="0"/>
+			<item type="image"  value="/usr/res/pic/buffering/1.png" index="1"/>
+			<item type="image"  value="/usr/res/pic/buffering/2.png" index="2"/>
+			<item type="image"  value="/usr/res/pic/buffering/3.png" index="3"/>
+			<item type="image"  value="/usr/res/pic/buffering/4.png" index="4"/>
+			<item type="image"  value="/usr/res/pic/buffering/5.png" index="5"/>
+			<item type="image"  value="/usr/res/pic/buffering/6.png" index="6"/>
+			<item type="image"  value="/usr/res/pic/buffering/7.png" index="7"/>
+			<item type="image"  value="/usr/res/pic/buffering/8.png" index="8"/>
+			<item type="image"  value="/usr/res/pic/buffering/9.png" index="9"/>
+			<item type="image"  value="/usr/res/pic/buffering/10.png" index="10"/>
+			<item type="image"  value="/usr/res/pic/buffering/11.png" index="11"/>
+			<item type="image"  value="/usr/res/pic/buffering/12.png" index="12"/>
+		</element>
+
+	</widget>
+
+</layer>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 一个图层，size由使用者决定，建议沾满屏幕 -->
+<!-- AWCast 主界面 -->
+<!-- layer:
+		属性：background x y w h
+		子标签：widget
+
+	widget:
+		属性：name, x, y, w, h
+		子标签：element
+
+	element:
+		属性：name, x, y, w, h, order, direct
+		子标签：item
+
+	item: 图片/文字 内容来源于：程序设置 > 属性 > 子标签
+		属性：type, color, font_size, image, direct
+		子标签: image/text
+
+	image:
+		属性：key, source
+
+	text:
+		属性：key, text
+-->
+
+<!--  -->
+<layer background="xxx.png" x="0" y="0" w="100" h="100">
+
+	<widget name="dlna" x="0" y="0" w="100" h="100">
+
+		<element name="bg" x="0" y="0" w="100" h="100">
+			<item type="image" value="/usr/res/pic/main.jpg" />
+		</element>
+
+		<element name="softap" x="40" y="25" w="12" h="24">
+			<item type="image" value="/usr/res/pic/softap.png" />
+		</element>
+
+		<element name="awcast" x="10" y="10" w="30" h="10">
+			<item type="text" value="metadata.ssid" font_size="20" color="0xFF000000" hpos="left" />
+		</element>
+
+		<element name="password" x="30" y="10" w="30" h="10">
+			<item type="text" value="password: 12345678" font_size="20" color="0xFF000000" hpos="left" />
+		</element>
+
+		<element name="wifi_info" x="65" y="10" w="30" h="10">
+			<item type="text" value="metadata.wifi_status" font_size="20" color="0xFF000000" hpos="left" />
+		</element>
+
+	</widget>
+
+	<widget name="miracast" x="0" y="0" w="100" h="100">
+
+		<element name="bg" x="0" y="0" w="100" h="100">
+			<item type="image" value="/usr/res/pic/main.jpg" />
+		</element>
+
+		<element name="info" x="35" y="10" w="30" h="10">
+			<item type="text" value="metadata.device_info" font_size="20" color="0xFF000000" hpos="left" />
+		</element>
+
+	</widget>
+
+	<widget name="miracast_connected" x="0" y="0" w="100" h="100">
+
+		<element name="bg" x="0" y="0" w="100" h="100">
+			<item type="rect" color="0x00000000" />
+		</element>
+
+	</widget>
+
+	<widget name="clear_net_config" x="0" y="0" w="100" h="100">
+
+		<element name="bg" x="0" y="0" w="100" h="100">
+			<item type="image" value="/usr/res/pic/main.jpg" />
+		</element>
+
+		<element name="info" x="10" y="20" w="100" h="30">
+			<item type="text" value="Clearing network configuration, please wait, system will restart" font_size="30" color="0xFF000000" hpos="left" />
+		</element>
+
+	</widget>
+
+	<widget name="wifi_list" x="0" y="0" w="100" h="100">
+		<element name="bg" x="0" y="0" w="100" h="100">
+			<item type="rect" color="0xffffffff" />
+		</element>
+
+		<element name="wifi_list" x="10" y="10" w="100" h="10">
+			<item type="text" value="metadata.wifi_list0" font_size="20" color="0xFF000000" hpos="left" />
+		</element>
+
+		<element name="wifi_list" x="10" y="15" w="100" h="10">
+			<item type="text" value="metadata.wifi_list1" font_size="20" color="0xFF000000" hpos="left" />
+		</element>
+
+		<element name="wifi_list" x="10" y="20" w="100" h="10">
+			<item type="text" value="metadata.wifi_list2" font_size="20" color="0xFF000000" hpos="left" />
+		</element>
+
+		<element name="wifi_list" x="10" y="25" w="100" h="10">
+			<item type="text" value="metadata.wifi_list3" font_size="20" color="0xFF000000" hpos="left" />
+		</element>
+
+		<element name="wifi_list" x="10" y="30" w="100" h="10">
+			<item type="text" value="metadata.wifi_list4" font_size="20" color="0xFF000000" hpos="left" />
+		</element>
+
+		<element name="wifi_list" x="10" y="35" w="100" h="10">
+			<item type="text" value="metadata.wifi_list5" font_size="20" color="0xFF000000" hpos="left" />
+		</element>
+
+		<element name="wifi_list" x="10" y="40" w="100" h="10">
+			<item type="text" value="metadata.wifi_list6" font_size="20" color="0xFF000000" hpos="left" />
+		</element>
+
+		<element name="wifi_list" x="10" y="45" w="100" h="10">
+			<item type="text" value="metadata.wifi_list7" font_size="20" color="0xFF000000" hpos="left" />
+		</element>
+
+		<element name="wifi_list" x="10" y="50" w="100" h="10">
+			<item type="text" value="metadata.wifi_list8" font_size="20" color="0xFF000000" hpos="left" />
+		</element>
+
+		<element name="wifi_list" x="10" y="55" w="100" h="10">
+			<item type="text" value="metadata.wifi_list9" font_size="20" color="0xFF000000" hpos="left" />
+		</element>
+
+	</widget>
+
+</layer>
